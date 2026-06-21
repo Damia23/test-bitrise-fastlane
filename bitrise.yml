@@ -36,6 +36,11 @@ workflows:
         inputs:
         - command: install
     - save-npm-cache@1: {}
+    - android-build@1:
+        inputs:
+        - variant: staging
+        - build_type: apk
+    - sign-apk@1: {}
     - deploy-to-bitrise-io@2: {}
     triggers:
       push:
@@ -51,3 +56,7 @@ app:
   - PLATFORM: all
     opts:
       is_expand: false
+pipelines:
+  staging:
+    workflows:
+      primary: {}
