@@ -36,6 +36,17 @@ workflows:
         inputs:
         - command: install
     - save-npm-cache@1: {}
+    - script@1:
+        title: Run Expo Prebuild
+        inputs:
+          - content: |-
+              #!/usr/bin/env bash
+              # fail if any command fails
+              set -e
+              
+              # Run prebuild to generate ios and android folders
+              npx expo prebuild --clean
+
     - android-build@1:
         inputs:
         - variant: staging
