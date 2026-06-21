@@ -40,6 +40,7 @@ workflows:
         inputs:
         - variant: staging
         - build_type: apk
+        - project_location: 'android'
     - sign-apk@1: {}
     - deploy-to-bitrise-io@2: {}
     triggers:
